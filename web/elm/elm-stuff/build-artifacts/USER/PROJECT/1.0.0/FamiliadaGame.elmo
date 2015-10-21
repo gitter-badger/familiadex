@@ -23,7 +23,7 @@ Elm.FamiliadaGame.make = function (_elm) {
                 _L.fromArray([$Html.text("Hello from Elm!")]))
                 ,A2($Html.p,
                 _L.fromArray([$Html$Attributes.$class("lead")]),
-                _L.fromArray([$Html.text("the best of functional programming in your browser")]))]));
+                _L.fromArray([$Html.text("To bedzie frontend dla familiady")]))]));
    var main = view;
    _elm.FamiliadaGame.values = {_op: _op
                                ,main: main
