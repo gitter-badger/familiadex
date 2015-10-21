@@ -1,0 +1,32 @@
+Elm.FamiliadaGame = Elm.FamiliadaGame || {};
+Elm.FamiliadaGame.make = function (_elm) {
+   "use strict";
+   _elm.FamiliadaGame = _elm.FamiliadaGame || {};
+   if (_elm.FamiliadaGame.values)
+   return _elm.FamiliadaGame.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   $moduleName = "FamiliadaGame",
+   $Basics = Elm.Basics.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var view = A2($Html.div,
+   _L.fromArray([$Html$Attributes.$class("jumbotron")]),
+   _L.fromArray([A2($Html.h2,
+                _L.fromArray([]),
+                _L.fromArray([$Html.text("Hello from Elm!")]))
+                ,A2($Html.p,
+                _L.fromArray([$Html$Attributes.$class("lead")]),
+                _L.fromArray([$Html.text("the best of functional programming in your browser")]))]));
+   var main = view;
+   _elm.FamiliadaGame.values = {_op: _op
+                               ,main: main
+                               ,view: view};
+   return _elm.FamiliadaGame.values;
+};
