@@ -16,17 +16,82 @@ Elm.FamiliadaGame.make = function (_elm) {
    $Maybe = Elm.Maybe.make(_elm),
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
-   var view = A2($Html.div,
-   _L.fromArray([$Html$Attributes.$class("jumbotron")]),
-   _L.fromArray([A2($Html.h2,
-                _L.fromArray([]),
-                _L.fromArray([$Html.text("Hello from Elm!")]))
-                ,A2($Html.p,
-                _L.fromArray([$Html$Attributes.$class("lead")]),
-                _L.fromArray([$Html.text("To bedzie frontend dla familiady")]))]));
-   var main = view;
+   var view = F2(function (address,
+   model) {
+      return A2($Html.div,
+      _L.fromArray([$Html$Attributes.$class("jumbotron")]),
+      _L.fromArray([$Html.text("elo elo 3 5 0")]));
+   });
+   var update = F2(function (action,
+   model) {
+      return function () {
+         switch (action.ctor)
+         {case "NoOp": return model;}
+         _U.badCase($moduleName,
+         "between lines 71 and 77");
+      }();
+   });
+   var ChangeVisibility = F2(function (a,
+   b) {
+      return {ctor: "ChangeVisibility"
+             ,_0: a
+             ,_1: b};
+   });
+   var NoOp = {ctor: "NoOp"};
+   var actions = $Signal.mailbox(NoOp);
+   var sampleAnswer = {_: {}
+                      ,answer: "Odpowiedz1"
+                      ,id: 1
+                      ,points: 12
+                      ,visible: true};
+   var sampleQuestion = {_: {}
+                        ,answers: _L.fromArray([sampleAnswer])
+                        ,id: 1
+                        ,question: "pytanie 1"};
+   var initialModel = {_: {}
+                      ,currentQuestion: sampleQuestion};
+   var model = A3($Signal.foldp,
+   update,
+   initialModel,
+   actions.signal);
+   var main = A2($Signal.map,
+   view(actions.address),
+   model);
+   var Question = F3(function (a,
+   b,
+   c) {
+      return {_: {}
+             ,answers: c
+             ,id: a
+             ,question: b};
+   });
+   var Answer = F4(function (a,
+   b,
+   c,
+   d) {
+      return {_: {}
+             ,answer: b
+             ,id: a
+             ,points: c
+             ,visible: d};
+   });
+   var Model = function (a) {
+      return {_: {}
+             ,currentQuestion: a};
+   };
    _elm.FamiliadaGame.values = {_op: _op
+                               ,Model: Model
+                               ,Answer: Answer
+                               ,Question: Question
+                               ,sampleAnswer: sampleAnswer
+                               ,sampleQuestion: sampleQuestion
+                               ,initialModel: initialModel
+                               ,NoOp: NoOp
+                               ,ChangeVisibility: ChangeVisibility
+                               ,update: update
+                               ,view: view
                                ,main: main
-                               ,view: view};
+                               ,model: model
+                               ,actions: actions};
    return _elm.FamiliadaGame.values;
 };
